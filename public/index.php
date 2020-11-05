@@ -1,5 +1,11 @@
 <?php 
-
+// ?DATABASE CONNECTION
+include('../database/dbconn.php');
+// ?CLASS
+include('../class/BMI.php');
+include('../class/Users.php');
+$_users = new Users($pdo);
+$_bmi = new BMI($pdo);
 // ?Page
 $page_action = isset($_GET['page'])?$_GET['page']:'home';
 $page;
