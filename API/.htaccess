@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteRule ^auth auth.php [NC,L]
+RewriteRule ^auth/([0-9a-zA-Z_-]*)$ auth.php?id=$1 [NC,L]
+
+RewriteRule ^info info.php [NC,L]
+RewriteRule ^info/([0-9a-zA-Z_-]*)$ info.php?id=$1 [NC,L]

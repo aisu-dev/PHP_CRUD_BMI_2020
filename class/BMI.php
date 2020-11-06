@@ -18,6 +18,29 @@ class BMI{
         $this->pdo->exec($sql);
     }
 
+    function readAll(){
+        $sql = 'select * from bmi inner join user on bmi.uid = user.id';
+        $resp = $this->pdo->query($sql)->fetchAll();
+        return $resp;
+    }
+
+    function readByUID($id){
+        $sql = 'select * from bmi where uid = '.$id;
+        $resp = $this->pdo->query($sql)->fetch();
+        return $resp;
+    }
+
+    function create($data){
+        $res = $this->readByUID($data['id']);
+        if($res){
+            $sql = 'update bmi set height = :height , weight = :weight , bmi = :bmi where uid = :id';
+            $this->pdo->prepare($sql)->execute($data);
+        }else{
+            $sql = 'insert into bmi(uid,height,weight,bmi) values(:id,:height,:weight,:bmi)';
+            $this->pdo->prepare($sql)->execute($data);
+        }
+    }
+
 }
 
 ?>

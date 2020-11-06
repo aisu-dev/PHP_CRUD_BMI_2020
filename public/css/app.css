@@ -1,0 +1,23 @@
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+nav{
+    position: relative;
+    width: 100%;
+}
+nav .menu{
+    width: max-content;
+    margin: 0 auto 0 auto;
+}
+nav .menu a{
+    margin: 20px;
+    color: black;
+    font-size: 45px;
+    text-decoration: none;
+    transition: all 300ms;
+}
+nav .menu a:hover{
+    font-size: 47px;
+    opacity: .7;
+}
